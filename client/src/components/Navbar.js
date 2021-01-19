@@ -5,8 +5,6 @@ import axios from 'axios'
 function Navbar() {
 
     const[deviceName, setDeviceName]=useState('')
-    const[registeredDevice, setRegisteredDevice]=useState('')
-
 
     function registerDevice(event) {
         event.preventDefault()
@@ -15,10 +13,10 @@ function Navbar() {
             name: deviceName
         }
 
-        axios.post('/api/user/register-device', device)
+        axios.post('/api/user/registerdevice', device)
         .then(res=>{
             console.log('Register successfull')
-            setRegisteredDevice(res.data)
+            
         }).catch(err=>{
             console.log('Register failed')
         })
@@ -36,8 +34,6 @@ function Navbar() {
             <input type="submit" value="Register your device" className="btn btn-dark"/>
 
         </form>
-
-        <h3>The registered device is {registeredDevice}</h3>
         
     </div>
 }

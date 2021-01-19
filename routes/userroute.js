@@ -3,7 +3,7 @@ var app = express()
 const mongoose = require('mongoose')
 const router = express.Router()
 
-mongoose.connect('mongoose://localhost:27017/tech-rating', {useNewUrlParser: true, useUnifiedTopology: true}, function(err) {
+mongoose.connect('mongodb://localhost:27017/tech-rating', {useNewUrlParser: true, useUnifiedTopology: true}, function(err) {
     if (err) {
         console.log(err)
     } else {
@@ -11,6 +11,8 @@ mongoose.connect('mongoose://localhost:27017/tech-rating', {useNewUrlParser: tru
     }
 })
 
-router.post('/register-device', function(req, res) {
+router.post('/registerdevice', function(req, res) {
     res.send('Register device successful')
-})
+}) 
+
+module.exports = router
